@@ -14,6 +14,12 @@
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet" />
         <!-- Core theme CSS (includes Bootstrap)-->
         <link href="css/styles.css" rel="stylesheet" />
+
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/jquery/latest/jquery.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/momentjs/latest/moment.min.js"></script>
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.min.js"></script>
+        <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/daterangepicker/daterangepicker.css" />
+
     </head>
     <body id="page-top">
         <!-- Navigation-->
@@ -27,7 +33,7 @@
                 <div class="collapse navbar-collapse" id="navbarResponsive">
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?c=determinarPaquetes&a=determinarPaquetesAction">Paquetes</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Alojamiento</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?c=alojamiento&a=alojamiento">Alojamiento</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Atractivos</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php #about">Acerca de nosotros</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Iniciar Sesión</a></li>

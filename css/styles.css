@@ -10373,3 +10373,26 @@ body {
 .footer {
   padding: 5rem 0;
 }
+
+/* barra de busqueda */
+
+.barra {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 20px;
+  width: 1500px;
+}
+
+/*.list-group-item {*/
+/*  background-color: transparent;*/
+/*  border-top: 1px solid #ddd;*/
+/*  border-radius: 0;*/
+/*  color: #fff;*/
+/*}*/
+
+
+
+
+
+
+
+
