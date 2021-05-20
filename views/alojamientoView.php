@@ -1,19 +1,51 @@
 <?php
 include_once 'views/header.php';
+
+$criterios = [
+    "Tipo de alojamiento" => [
+        "Cabaña",
+        "Hotel",
+        "Hostal",
+        "Resort",
+        "Bed and Breakfast"
+    ],
+    "Servicios" => [
+        "Internet",
+        "Cable",
+        "Aire Acondicionado",
+        "Estacionamiento",
+        "Restaurante"
+    ],
+    "Precios" => [
+        "Menos de ₡50.000",
+        "₡50.000 - ₡100.000",
+        "₡100.000 - ₡250.000",
+        "Más de ₡250.000"
+    ],
+    "Estadia" => [
+        "Internet",
+        "Cable",
+        "Aire Acondicionado",
+        "Estacionamiento",
+        "Restaurante"
+    ],
+    "Habitaciones" => 0
+]
 ?>
+
+<body>
+
 <header class="masthead">
 
 </header>
 
-<body style="background-color: black">
 <div class="container">
     <?php
     include_once 'views/barraCriterios.php';
     ?>
 </div>
-<br>
 
-<div class="container">
+<div class="container" id="content">
     <ul class="list-group list-group-flush">
         <li class="list-group-item-action">
             <div class="card mb-3" style="max-width: 1500px;">
@@ -73,6 +105,8 @@ include_once 'views/header.php';
     </ul>
 </div>
 
+
+<!-- Este es el modal, por el momento se deja aquí pero hay que hacerlo más modular  -->
 <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">

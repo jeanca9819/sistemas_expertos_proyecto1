@@ -10379,7 +10379,7 @@ body {
 .barra {
   background: rgba(0, 0, 0, 0.5);
   padding: 20px;
-  width: 1500px;
+  margin: -20px;
 }
 
 /*.list-group-item {*/
