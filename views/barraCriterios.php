@@ -26,7 +26,7 @@
                                 <?php
                             } else {
                                 ?>
-                                <input type="number" class="form-control" id="" placeholder="">
+                                <input type="number" class="form-control" id="" min="1" placeholder="Cantidad de Habitaciones">
                                 <?php
                             }
                             ?>
