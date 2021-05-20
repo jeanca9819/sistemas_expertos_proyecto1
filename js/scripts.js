@@ -54,4 +54,8 @@
     $(window).scroll(navbarCollapse);
 })(jQuery); // End of use strict
 
-
+jQuery(document).ready(function () {
+    jQuery('#hideshow').on('click', function (event) {
+        jQuery('#content').slideDown("slow");
+    });
+});
