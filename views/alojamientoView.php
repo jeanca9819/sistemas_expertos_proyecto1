@@ -23,11 +23,10 @@ $criterios = [
         "Más de ₡250.000"
     ],
     "Estadia" => [
-        "Internet",
-        "Cable",
-        "Aire Acondicionado",
-        "Estacionamiento",
-        "Restaurante"
+        "2 días",
+        "3 días",
+        "4 días",
+        "Más de 5 días"
     ],
     "Habitaciones" => 0
 ]
@@ -42,6 +41,8 @@ $criterios = [
         ?>
     </div>
 </header>
+<br>
+<br>
 <section id="result">
     <div style="display:none;" class="container" id="content">
         <ul class="list-group list-group-flush">

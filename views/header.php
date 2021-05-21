@@ -35,8 +35,8 @@
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?c=paquetes&a=paquetesAction">Paquetes</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?c=alojamiento&a=alojamiento">Alojamiento</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?c=atractivo&a=atractivo">Atractivos</a></li>
+                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php?c=vehiculos&a=vehiculosAction">Vehiculos</a></li>
                         <li class="nav-item"><a class="nav-link js-scroll-trigger" href="index.php #about">Acerca de nosotros</a></li>
-                        <li class="nav-item"><a class="nav-link js-scroll-trigger" href="#">Iniciar Sesión</a></li>
                     </ul>
                 </div>
             </div>

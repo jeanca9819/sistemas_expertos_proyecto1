@@ -47,7 +47,8 @@ $criterios = [
         ?>
     </div>
 </header>
-
+<br>
+<br>
 <section id="result">
     <div class="container" style="display:none;" id="content">
         <ul class="list-group list-group-flush">

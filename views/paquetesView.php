@@ -40,7 +40,8 @@ $criterios = [
         ?>
     </div>
 </header>
-
+<br>
+<br>
 <section id="result">
     <div style="display:none;" class="container" id="content">
         <ul class="list-group list-group-flush">
