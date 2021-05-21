@@ -40,16 +40,15 @@ $criterios = [
 
 <body>
 
-    <header class="masthead">
-
-    </header>
-
-    <div class="container">
+<header class="masthead">
+    <div class="container d-flex h-100 align-items-center mx-auto">
         <?php
-        include_once 'views/barraCriterios.php';
+            include_once 'views/barraCriterios.php';
         ?>
     </div>
+</header>
 
+<section id="result">
     <div class="container" style="display:none;" id="content">
         <ul class="list-group list-group-flush">
             <li class="list-group-item-action">
@@ -103,7 +102,7 @@ $criterios = [
             </li>
         </ul>
     </div>
-
+</section>
 
     <!--MIRADOR Este es el modal, por el momento se deja aquí pero hay que hacerlo más modular  -->
     <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
