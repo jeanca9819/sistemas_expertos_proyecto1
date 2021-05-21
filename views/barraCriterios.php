@@ -37,12 +37,11 @@
                 ?>
             </div>
             <div class="col text-right">
-                <input type='button' id='hideshow' value='Filtrar'>
+                <input type='button' id='hideshow' value='Filtrar' onclick="location.href='#result';">
             </div>
         </form>
     </div>
 </div>
-<!-- Fureza bruta para tiempos de deseperación :) -->
 <br>
 <br>
 
