@@ -53,6 +53,8 @@ $criterios = [
         <div class="container d-flex h-100 align-items-center mx-auto">
             <?php
             include_once 'views/barraCriterios.php';
+            $counter = 0;
+            $selectedValue = 0;
             ?>
         </div>
     </header>
@@ -84,17 +86,16 @@ $criterios = [
                                         <script>
                                             function getSelectedValue<?= $result['id'] ?>() {
                                                 let nombre = "<?= $result['nombre'] ?>";
-                                                let detalle = "<?= $result['detalle'] ?>";
+                                                let descripcion = "<?= $result['descripcion'] ?>";
                                                 let urlImagen1 = "<?= $result['url_imagen_1'] ?>";
                                                 let urlImagen2 = "<?= $result['url_imagen_2'] ?>";
                                                 let urlVideo = "<?= $result['url_video'] ?>";
                                                 //const urlMapa = "<? //= $result['url_mapa '] 
                                                                     ?>//";
-                                                //alert(nombre);
                                                 $("#example").modal("show");
 
                                                 let inputF = document.getElementById("exampleModalLongTitle");
-                                                let paragElem = document.getElementById("detalle");
+                                                let paragElem = document.getElementById("descripcion");
                                                 let imgElem = document.getElementById("img1");
                                                 let img2Elem = document.getElementById("img2");
                                                 let videoElem = document.getElementById("video1");
@@ -126,7 +127,7 @@ $criterios = [
         <div class="modal-dialog modal-lg" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Test</h5>
+                    <h5 class="modal-title" id="exampleModalLongTitle"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
@@ -140,14 +141,14 @@ $criterios = [
                         </ol>
                         <div class="carousel-inner">
                             <div class="carousel-item active">
-                                <img class="d-block w-100" id="img1" src="" alt="First slide">
+                                <img id="img1" class="d-block w-100" src="" alt="First slide">
                             </div>
                             <div class="carousel-item">
-                                <img class="d-block w-100" id="img2" src="" alt="Second slide">
+                                <img id="img2" class="d-block w-100" src="" alt="Second slide">
                             </div>
                             <div class="carousel-item">
                                 <div class="video-responsive">
-                                    <iframe width="560" height="315" id="video1" src="https://www.youtube.com/embed/f0bc5E24Js4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                    <iframe id="video1" width="560" height="315" src="https://www.youtube.com/embed/f0bc5E24Js4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                                 </div>
                             </div>
                         </div>
@@ -162,8 +163,7 @@ $criterios = [
                     </div>
                     <br>
                     <div>
-                        <p id="detalle">
-                        </p>
+                        <p id="descripcion"></p>
                     </div>
                 </div>
                 <div class="modal-footer">
@@ -172,6 +172,7 @@ $criterios = [
             </div>
         </div>
     </div>
+
 
 
 
