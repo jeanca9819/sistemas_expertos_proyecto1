@@ -1,9 +1,0 @@
-{
-    "name": "alher/sistemas_expertos_proyecto1",
-    "autoload": {
-        "psr-4": {
-            "app\\": "./"
-        }
-    },
-    "require": {}
-}

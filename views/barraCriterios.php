@@ -26,7 +26,7 @@
                                 <?php
                             } else {
                                 ?>
-                                <input type="number" class="form-control" id="" min="1" placeholder="Cantidad de Habitaciones">
+                                <input type="number" class="form-control" id="" placeholder="">
                                 <?php
                             }
                             ?>
@@ -37,11 +37,12 @@
                 ?>
             </div>
             <div class="col text-right">
-                <input type='button' id='hideshow' value='Filtrar' onclick="location.href='#result';">
+                <input type='button' id='hideshow' value='Filtrar'>
             </div>
         </form>
     </div>
 </div>
+<!-- Fureza bruta para tiempos de deseperación :) -->
 <br>
 <br>
 
