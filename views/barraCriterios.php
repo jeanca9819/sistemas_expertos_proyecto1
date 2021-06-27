@@ -3,7 +3,7 @@
 
 <div class="container" style="padding-top: 120px">
     <div class="barra">
-        <form name="<?= $_GET['c'] ?>" method="post">
+        <form>
             <div class="row">
                 <?php
                 foreach ($criterios as $key => $criterio) {
@@ -14,11 +14,11 @@
                             <?php
                             if (is_array($criterio)) {
                                 ?>
-                                <select class="form-control" name=<?= $atributos[$key] ?>>
+                                <select class="form-control">
                                     <?php
-                                    foreach ($criterio as $text => $value) {
+                                    foreach ($criterio as $opcion) {
                                         ?>
-                                        <option value=<?= $value ?>><?= $text ?></option>
+                                        <option><?= $opcion ?></option>
                                         <?php
                                     }
                                     ?>
@@ -26,7 +26,7 @@
                                 <?php
                             } else {
                                 ?>
-                                <input name=<?= $atributos[$key] ?> type="number" class="form-control" id="" min="1" placeholder="Cantidad de Habitaciones">
+                                <input type="number" class="form-control" id="" placeholder="">
                                 <?php
                             }
                             ?>
@@ -37,12 +37,12 @@
                 ?>
             </div>
             <div class="col text-right">
-                <button type="submit" class="btn btn-primary">Submit</button>
-<!--                <input type='button' id='hideshow' value='Filtrar' onclick="location.href='#result';">-->
+                <input type='button' id='hideshow' value='Filtrar'>
             </div>
         </form>
     </div>
 </div>
+<!-- Fureza bruta para tiempos de deseperación :) -->
 <br>
 <br>
 
