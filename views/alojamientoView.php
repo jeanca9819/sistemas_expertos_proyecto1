@@ -77,8 +77,7 @@ $criterios = [
 
                                     <input type="hidden" placeholder="Type" id="<?= "input" . $result['id'] ?>" value="<?= $result ?>">
 
-                                    <a id="<?= "link" . $result['id'] ?>" data-toggle="modal" data-target="#example" href="" onclick="getSelectedValue<?= $result['id']?>()">Ver más</a>
-                                    
+                                    <a id="<?= "link" . $result['id'] ?>" data-toggle="modal" data-target="#example" href="" onclick="">Ver más</a>
 
                                 </div>
                             </div>
@@ -97,7 +96,7 @@ $criterios = [
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"><?= $selected ?></h5>
+                <h5 class="modal-title" id="exampleModalLongTitle">Test</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
