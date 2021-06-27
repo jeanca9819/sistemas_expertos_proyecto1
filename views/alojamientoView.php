@@ -95,18 +95,7 @@ $criterios = [
                 </div>
                 <br>
                 <div>
-                    <p id="descripcion">
-                        Se ofrece wifi gratuito a los huéspedes y las habitaciones de Holiday Inn Express
-                        San Jose Airport incluyen televisor de pantalla plana y aire acondicionado.
-                        <br><br>
-                        Durante la estancia, disfruta de algunos de los servicios que ofrecen, como recepción abierta 24 horas,
-                        servicio de habitaciones y conserje. Los huéspedes de Hotel Holiday Inn Express San Jose Airport también
-                        disponen de piscina y desayuno incluido allí mismo. Para viajeros con coche hay parking gratis disponible.
-                        <br><br>
-                        Para aquellos que estén interesados en visitar puntos de referencia conocidos durante su viaje a
-                        Alajuela, Hotel Holiday Inn Express San Jose Airport se encuentra cerca de Teatro Municipal
-                        (2,6 km) y Our Lady of the Pillar Cathedral (2,7 km).
-                    </p>
+                    <p id="descripcion"></p>
                 </div>
             </div>
             <div class="modal-footer">
@@ -135,15 +124,8 @@ $criterios = [
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $result['nombre'] ?></h5>
                                     <p class="card-text"><?= $result['descripcion'] ?></p>
-
-<!--                                    <form id="--><?//= "alojamiento" . $result['id'] ?><!--" name="selected" method="post">-->
-<!--                                        <input name="selected_id" type="hidden" placeholder="Type" id="--><?//= "input" . $result['id'] ?><!--" value="--><?//= $result['id'] ?><!--">-->
-<!--                                        <a type="button" id="--><?//= "link" . $result['id'] ?><!--" onclick="--><?//= "getSelectedValue" . $result['id'] . "()"?><!--">Ver más</a>-->
-<!--                                    </form>-->
-
                                     <a type="button" id="<?= "link_" . $result['id'] ?>" onclick="getSelectedValue<?=$result['id'] ?>()">Ver más</a>
                                     <script>
-
                                         function getSelectedValue<?=$result['id'] ?>() {
                                             let nombre = "<?= $result['nombre'] ?>";
                                             let descripcion = "<?= $result['descripcion'] ?>";
@@ -151,7 +133,6 @@ $criterios = [
                                             let urlImagen2 = "<?= $result['url_imagen_2'] ?>";
                                             let urlVideo = "<?= $result['url_video'] ?>";
                                             //const urlMapa = "<?//= $result['url_mapa '] ?>//";
-                                            //alert(nombre);
                                             $("#example").modal("show");
 
                                             let inputF = document.getElementById("exampleModalLongTitle");
@@ -166,7 +147,6 @@ $criterios = [
                                             videoElem.setAttribute("src", urlVideo);
                                         }
                                     </script>
-
                                 </div>
                             </div>
                         </div>
