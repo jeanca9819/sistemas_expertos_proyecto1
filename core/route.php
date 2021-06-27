@@ -1,38 +1,38 @@
 <?php
 
-    /*Esta función ayuda a cargar el controlador respectivo, concatenando 
-    a el controlador con la palabra ingresada y el archivo, así se conectan
-    los archivos. 
-    */
-    function cargarControlador($controlador){
-        $nombreControlador = ucwords($controlador)."Controller";
-        $archivoControlador = 'controllers/'.ucwords($nombreControlador).'.php';
+/*Esta función ayuda a cargar el controlador respectivo, concatenando
+a el controlador con la palabra ingresada y el archivo, así se conectan
+los archivos.
+*/
+function cargarControlador($controlador){
+    $nombreControlador = ucwords($controlador)."Controller";
+    $archivoControlador = 'controllers/'.ucwords($nombreControlador).'.php';
 
-        if(!is_file($archivoControlador)){
-            $archivoControlador = 'controllers/'.CONTROLADOR_PRINCIPAL.'.php';
-        }
-       
-        require_once $archivoControlador;
-        $control = new $nombreControlador();
-        return $control;
+    if(!is_file($archivoControlador)){
+        $archivoControlador = 'controllers/'.CONTROLADOR_PRINCIPAL.'Controller.php';
     }
 
-        /*Esta función ayuda a cargar la acción respectiva del controlador 
-        que se ingresa, así sabe que acción realizar, en este caso mostraría las 
-        vistas. 
-    */
-    function cargarAccion($controlador, $accion){
-        if(isset($accion) && method_exists($controlador, $accion)){
+    require_once $archivoControlador;
+    $control = new $nombreControlador();
+    return $control;
+}
 
-            $controlador->$accion();
+/*Esta función ayuda a cargar la acción respectiva del controlador
+que se ingresa, así sabe que acción realizar, en este caso mostraría las
+vistas.
+*/
+function cargarAccion($controlador, $accion){
+    if(isset($accion) && method_exists($controlador, $accion)){
 
-        } else{
-            $controlador->ACCION_PRINCIPAL();
-        }
+        $controlador->$accion();
+
+    } else{
+        $controlador->ACCION_PRINCIPAL();
     }
+}
 
-    /*En todo caso, si no se agregan usan el CONTROLADOR_PRINCIPAL y ACCION_PRINCIPAL
-    para poder cargar la vista principal. 
-    */
+/*En todo caso, si no se agregan usan el CONTROLADOR_PRINCIPAL y ACCION_PRINCIPAL
+para poder cargar la vista principal.
+*/
 
 ?>
