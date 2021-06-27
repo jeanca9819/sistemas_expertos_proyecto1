@@ -1,39 +1,47 @@
 <?php
 include_once 'views/header.php';
 
+$atributos = [
+    "Tipo de atractivo" => "tipo_atractivo",
+    "Precios" => "precios",
+    "Servicios" => "servicios",
+    "Ocasion" => "ocasion",
+    "Horarios" => "horarios"
+];
+
 $criterios = [
-    "Tipo" => [
-        "Playa",
-        "Montaña",
-        "Ciudad",
-        "Museo",
-        "Cine",
-        "Acuático",
-        "Parques"
+    "Tipo de atractivo" => [
+        "Playa" => 1,
+        "Montaña" => 2,
+        "Ciudad" => 3,
+        "Museo" => 4,
+        "Cine" => 5,
+        "Acuático" => 6,
+        "Parques" => 7
     ],
     "Precios" => [
-        "₡0 - ₡2500",
-        "₡2500 - ₡10000",
-        "₡10000 - ₡20000",
-        "Más de 20000"
+        "₡0 - ₡2500" => 1,
+        "₡2500 - ₡10000" => 2,
+        "₡10000 - ₡20000" => 3,
+        "Más de 20000" => 4
     ],
     "Servicios" => [
-        "Camping",
-        "Área de comida",
-        "Mascotas",
-        "Baños",
-        "Transporte"
+        "Camping" => 1,
+        "Área de comida" => 2,
+        "Mascotas" => 3,
+        "Baños" => 4,
+        "Transporte" => 5
     ],
     "Ocasión" => [
-        "Familiar",
-        "Solitario",
-        "Pareja",
-        "Amigos"
+        "Familiar" => 1,
+        "Solitario" => 2,
+        "Pareja" => 3,
+        "Amigos" => 4
     ],
     "Horarios" => [
-        "Mañana",
-        "Tarde",
-        "Noche"
+        "Mañana" => 1,
+        "Tarde" => 2,
+        "Noche" => 3
     ],
 ]
 ?>
@@ -50,61 +58,100 @@ $criterios = [
 <br>
 <br>
 <section id="result">
-    <div class="container" style="display:none;" id="content">
+    <div style="" class="container" id="content">
+
         <ul class="list-group list-group-flush">
-            <li class="list-group-item-action">
-                <div class="card mb-3" style="max-width: 1500px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img class="card-img-top card-image" style="max-width: 350px;" src="https://d1qqtien6gys07.cloudfront.net/wp-content/uploads/2021/03/ceb9e63e4943c065653bf466775858de.jpg" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Mirador de Orosi</h5>
-                                <p class="card-text">El Mirador de Orosi, es un sitio especial para compartir en familia o por qué no, un picnic para celebrar el aniversario con su pareja.
-                                    Así que tome rumbo a Cartago y disfrute de un sábado o un domingo muy agradable..</p>
-                                <a data-toggle="modal" data-target="#exampleModalCenter" href="">Ver más</a>
+            <?php
+                foreach ($results as $result) {
+                ?>
+                <li class="list-group-item-action">
+                    <div class="card mb-3" style="max-width: 1500px;">
+                        <div class="row no-gutters">
+                            <div class="col-md-4">
+                                <img style="max-width: 350px;" class="card-img-top card-image"
+                                     src=<?= $result['url_imagen_1'] ?>
+                                     alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $result['nombre'] ?></h5>
+                                    <p class="card-text"><?= $result['descripcion'] ?></p>
+
+                                    <input type="hidden" placeholder="Type" id="<?= "input" . $result['id'] ?>" value="<?= $result ?>">
+
+                                    <a id="<?= "link" . $result['id'] ?>" data-toggle="modal" data-target="#example" href="" onclick="">Ver más</a>
+
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </li>
-            <li class="list-group-item-action">
-                <div class="card mb-3" style="max-width: 1500px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img class="card-img-top card-image" style="max-width: 350px;" src="https://images.costarica.org/wp-content/uploads/2014/12/Tamarindo-Beach-View.jpg" alt="...">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Playa Tamarindo</h5>
-                                <p class="card-text">Playa muy popular y de gran belleza ubicada en Santa Cruz de Guanacaste. Combina la arena blanca, con buenas olas para el surf, y un paisaje increíble rodeado de montañas.</p>
-                                <a data-toggle="modal" data-target="#tamarindo" href="">Ver más</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li class="list-group-item-action">
-                <div class="card mb-3" style="max-width: 1500px;">
-                    <div class="row no-gutters">
-                        <div class="col-md-4">
-                            <img class="card-img-top card-image" alt="Responsive image" style="max-width: 350px;" src="https://www.periodistadigital.com/wp-content/uploads/2019/04/playa-tortuguero.jpg?width=1200&enable=upscale">
-                        </div>
-                        <div class="col-md-8">
-                            <div class="card-body">
-                                <h5 class="card-title">Playa Tortuguero</h5>
-                                <p class="card-text">Costa Rica es un verdadero paraíso de tortugas marinas popular en todo el mundo. Diferentes especies anidan durante varias épocas del año y en muchos lugares a lo largo de las playas de Costa Rica. Conózcolas</p>
-                                <a data-toggle="modal" data-target="#tortuguero" href="">Ver más</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </li>
+                </li>
+                <?php
+                }
+            ?>
         </ul>
     </div>
 </section>
-
+<div class="modal fade bd-example-modal-lg" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Test</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="carouselHolidayIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselHolidayIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselHolidayIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselHolidayIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/a1/78/74/breakfast-bar.jpg?w=1200&h=-1&s=1" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/1c/a1/78/6b/swimming-pool.jpg?w=1200&h=-1&s=1" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <div class="video-responsive">
+                                <iframe width="560" height="315" src="https://www.youtube.com/embed/f0bc5E24Js4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselHolidayIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselHolidayIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <br>
+                <div>
+                    <p>
+                        Se ofrece wifi gratuito a los huéspedes y las habitaciones de Holiday Inn Express
+                        San Jose Airport incluyen televisor de pantalla plana y aire acondicionado.
+                        <br><br>
+                        Durante la estancia, disfruta de algunos de los servicios que ofrecen, como recepción abierta 24 horas,
+                        servicio de habitaciones y conserje. Los huéspedes de Hotel Holiday Inn Express San Jose Airport también
+                        disponen de piscina y desayuno incluido allí mismo. Para viajeros con coche hay parking gratis disponible.
+                        <br><br>
+                        Para aquellos que estén interesados en visitar puntos de referencia conocidos durante su viaje a
+                        Alajuela, Hotel Holiday Inn Express San Jose Airport se encuentra cerca de Teatro Municipal
+                        (2,6 km) y Our Lady of the Pillar Cathedral (2,7 km).
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary data-dismiss" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
     <!--MIRADOR Este es el modal, por el momento se deja aquí pero hay que hacerlo más modular  -->
     <div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-lg" role="document">
