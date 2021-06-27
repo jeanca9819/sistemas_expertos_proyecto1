@@ -14,22 +14,13 @@ class AlojamientoController
         $results = [];
 
         if(strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
+            $storedData = $alojamiento->getDbData();
+            $values = $alojamiento->setData($request->getBody());
 
-            if(isset($_POST['selected_id'])) {
-                $selected_value = $_POST['selected_id'];
-            } else {
-                $storedData = $alojamiento->getDbData();
-                $values = $alojamiento->setData($request->getBody());
-
-                $results = $euclides->calculateDistance($values, $storedData, 'id_class');
-                $results = $alojamiento->getClassesFromDb($results);
-            }
+            $results = $euclides->calculateDistance($values, $storedData, 'id_class');
+            $results = $alojamiento->getClassesFromDb($results);
         }
 
         require_once "views/alojamientoView.php";
-    }
-
-    public function selected() {
-        $selected = $_GET['a'];
     }
 }
