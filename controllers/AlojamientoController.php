@@ -14,11 +14,12 @@ class AlojamientoController
         $results = [];
 
         if(strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
-            $storedData = $alojamiento->getDbData();
-            $values = $alojamiento->setData($request->getBody());
 
-            $results = $euclides->calculateDistance($values, $storedData, 'id_class');
-            $results = $alojamiento->getClassesFromDb($results);
+            $storedData = $alojamiento->getDbData(); // Get data from data base
+            $values = $alojamiento->setData($request->getBody()); // Get data from user from UI
+
+            $results = $euclides->calculateDistance($values, $storedData, 'id_class'); // Calculate distance with Euclides Algorithm
+            $results = $alojamiento->getClassesFromDb($results); // Associates class data to each distance
         }
 
         require_once "views/alojamientoView.php";

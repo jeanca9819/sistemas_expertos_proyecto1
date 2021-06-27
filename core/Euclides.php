@@ -46,17 +46,22 @@ class Euclides
         $minimums = [];
         $recommendations = [];
 
+        // From each class takes the minimum value and stores it on $minimums array
         foreach ($results as $key => $value) {
             $minimums[$key] = min($value);
         }
 
-        foreach ($minimums as $class_id => $minimum) {
-            if($minimum < 3) {
-                $recommendations[$class_id] = $minimum;
-            }
-        }
+        // Orders the array in ascendant order (minimum values first)
+        asort($minimums);
 
-        asort($recommendations);
+
+        // From all the minimums takes the better 5 and returns
+        $counter = 0;
+        foreach ($minimums as $class_id => $minimum) {
+            $recommendations[$class_id] = $minimum;
+            $counter++;
+            if ($counter >= 5) break;
+        }
 
         return $recommendations;
     }

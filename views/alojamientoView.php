@@ -47,8 +47,6 @@ $criterios = [
     <div class="container d-flex h-100 align-items-center mx-auto">
         <?php
             include_once 'views/barraCriterios.php';
-            $counter = 0;
-            $selectedValue = 0;
         ?>
     </div>
 </header>
@@ -153,7 +151,6 @@ $criterios = [
                     </div>
                 </li>
                 <?php
-                    $counter++;
                 }
             ?>
         </ul>
