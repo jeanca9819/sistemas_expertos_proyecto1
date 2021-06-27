@@ -6,7 +6,6 @@ require_once "core/Request.php";
 class atractivoController
 {
     public function atractivo() {
-        require_once "views/atractivoView.php";
         $euclides = new Euclides();
         $atractivo = new Atractivo();
         $request = new Request();
