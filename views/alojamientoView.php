@@ -47,6 +47,7 @@ $criterios = [
     <div class="container d-flex h-100 align-items-center mx-auto">
         <?php
             include_once 'views/barraCriterios.php';
+
         ?>
     </div>
 </header>
@@ -75,9 +76,28 @@ $criterios = [
                                     <h5 class="card-title"><?= $result['nombre'] ?></h5>
                                     <p class="card-text"><?= $result['descripcion'] ?></p>
 
-                                    <input type="hidden" placeholder="Type" id="<?= "input" . $result['id'] ?>" value="<?= $result ?>">
+                                    <form id="<?= "alojamiento" . $result['id'] ?>" name="selected" method="post">
+                                        <input name="selected_id" type="hidden" placeholder="Type" id="<?= "input" . $result['id'] ?>" value="<?= $result['id'] ?>">
+                                        <a type="button" id="<?= "link" . $result['id'] ?>" onclick="<?= "getSelectedValue" . $result['id'] . "()"?>">Ver más</a>
+                                    </form>
 
-                                    <a id="<?= "link" . $result['id'] ?>" data-toggle="modal" data-target="#example" href="" onclick="">Ver más</a>
+                                    <script>
+
+
+                                        function until(conditionFunction) {
+
+                                            const poll = resolve => {
+                                                if(conditionFunction()) resolve();
+                                                else setTimeout(_ => poll(resolve), 400);
+                                            }
+                                            return new Promise(poll);
+                                        }
+
+                                        async function getSelectedValue<?= $result['id'] ?>() {
+                                            document.getElementById("<?= "alojamiento" . $result['id'] ?>").submit();
+                                            $("#example").modal("show");
+                                        }
+                                    </script>
 
                                 </div>
                             </div>
@@ -96,7 +116,7 @@ $criterios = [
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle">Test</h5>
+                <h5 class="modal-title" id="exampleModalLongTitle"></h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
