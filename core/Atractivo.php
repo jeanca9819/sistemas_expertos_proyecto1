@@ -62,7 +62,7 @@ class Atractivo
         }
 
         foreach ($classes as $clase_id => $value) {
-            $sql = "SELECT id, nombre, descripcion, detalle, url_imagen_1, url_imagen_2, url_video, url_mapa FROM clase_atractivo WHERE id = $clase_id";
+            $sql = "SELECT id, nombre, descripcion, detalle, url_imagen_1, url_imagen_2, url_video, url_mapa, camping, mascotas,baños, transporte FROM clase_atractivo WHERE id = $clase_id";
             $result = $conn->query($sql);
 
             // output data of each row
