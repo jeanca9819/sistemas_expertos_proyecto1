@@ -4,11 +4,12 @@
 a el controlador con la palabra ingresada y el archivo, así se conectan
 los archivos.
 */
-function cargarControlador($controlador){
+
+function cargarControlador($controlador) {
     $nombreControlador = ucwords($controlador)."Controller";
     $archivoControlador = 'controllers/'.ucwords($nombreControlador).'.php';
 
-    if(!is_file($archivoControlador)){
+    if(!is_file($archivoControlador)) {
         $archivoControlador = 'controllers/'.CONTROLADOR_PRINCIPAL.'Controller.php';
     }
 
