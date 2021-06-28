@@ -62,7 +62,7 @@ class Alojamiento
         }
 
         foreach ($classes as $id_class => $value) {
-            $sql = "SELECT id, nombre, descripcion, url_imagen_1, url_imagen_2, url_video, url_mapa FROM clase_alojamiento WHERE id = $id_class";
+            $sql = "SELECT id, nombre, descripcion, url_imagen_1, url_imagen_2, url_video, url_mapa, aire_acondicionado, television, servicio_taxi, baño_ducha FROM clase_alojamiento WHERE id = $id_class";
             $result = $conn->query($sql);
 
             // output data of each row
@@ -72,8 +72,32 @@ class Alojamiento
 
         $conn->close();
 
+        $resultData = $this->filterAditionalServices($resultData);
+
         return $resultData;
 
+    }
+
+    public function filterAditionalServices($results) {
+
+        $servicios = [
+            "aire_acondicionado",
+            "television",
+            "servicio_taxi",
+            "baño_ducha"
+        ];
+
+        foreach ($results as $index => $result) {
+            foreach ($result as $key => $value) {
+                foreach ($servicios as $servicio) {
+                    if($servicio == $key) {
+                        $results[$index][$key] = $value ? "../assets/img/check.svg" : "../assets/img/crossed.svg";
+                    }
+                }
+            }
+        }
+
+        return $results;
     }
 
     // gets data from database

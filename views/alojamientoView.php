@@ -78,7 +78,7 @@ $criterios = [
                         </div>
                         <div class="carousel-item">
                             <div class="video-responsive">
-                                <iframe id="video1" width="560" height="315" src="https://www.youtube.com/embed/f0bc5E24Js4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                                <iframe id="video1" width="100%" height="100%" src="https://www.youtube.com/embed/f0bc5E24Js4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
                         </div>
                     </div>
@@ -95,6 +95,50 @@ $criterios = [
                 <div>
                     <p id="descripcion"></p>
                 </div>
+
+                <div class="box">
+                    <div class="box-sm red"></div>
+                    <div class="box-sm orange"></div>
+                    <div class="box-sm yellow "></div>
+                    <div class="box-sm green "></div>
+                    <div class="box-sm blue "></div>
+                    <div class="box-sm purple"></div>
+                </div>
+
+                <div class="container">
+                    <div class="row"><h5>Otras Caracteristicas Adicionales</h5></div>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <img id="img-aire" width="5%" src="<?= true ? "../assets/img/check.svg" : "../assets/img/crossed.svg"; ?>" alt="icon-air-conditioner">&nbsp;&nbsp;Aire Acondicionado
+                                </li>
+                                <li class="list-group-item">
+                                    <img id="img-taxi" width="5%" src="../assets/img/crossed.svg" alt="icon-air-conditioner">&nbsp;&nbsp;Servicio de Taxi
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-sm">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <img id="img-tele" width="5%" src="../assets/img/check.svg" alt="icon-air-conditioner">&nbsp;&nbsp;Television
+                                </li>
+                                <li class="list-group-item">
+                                    <img id="img-ducha" width="5%" src="../assets/img/check.svg" alt="icon-air-conditioner">&nbsp;&nbsp;Baño / Ducha
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="row" style="padding-top: 5%">
+                        <h5>Ubicación</h5>
+                        <iframe id="mapa1" src="" width="100%" height="100%" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+
+                </div>
+
             </div>
             <div class="modal-footer">
                 <button type="button" class="btn btn-primary data-dismiss" data-dismiss="modal">Cerrar</button>
@@ -124,25 +168,47 @@ $criterios = [
                                     <p class="card-text"><?= $result['descripcion'] ?></p>
                                     <a type="button" id="<?= "link_" . $result['id'] ?>" onclick="getSelectedValue<?=$result['id'] ?>()">Ver más</a>
                                     <script>
+                                        // This function is ugly and must be changed asap. But developer too lazy... developer must eat and sleep first
+                                        // Loads selected result data to modal. The name of the function is associated with the result tha was selected on the list
                                         function getSelectedValue<?=$result['id'] ?>() {
+
+                                            // Takes the data from the backend php of the selected result
                                             let nombre = "<?= $result['nombre'] ?>";
                                             let descripcion = "<?= $result['descripcion'] ?>";
                                             let urlImagen1 = "<?= $result['url_imagen_1'] ?>";
                                             let urlImagen2 = "<?= $result['url_imagen_2'] ?>";
                                             let urlVideo = "<?= $result['url_video'] ?>";
-                                            //const urlMapa = "<?//= $result['url_mapa '] ?>//";
-                                            $("#example").modal("show");
+                                            let urlMapa = "<?= $result['url_mapa'] ?>";
+                                            let aireAcondicionado = "<?= $result['aire_acondicionado'] ?>";
+                                            let television = "<?= $result['television'] ?>";
+                                            let servicioTaxi = "<?= $result['servicio_taxi'] ?>";
+                                            let banoDucha = "<?= $result['baño_ducha'] ?>";
 
+                                            // Selects the html elements that are needed to load the result data
                                             let inputF = document.getElementById("exampleModalLongTitle");
                                             let paragElem = document.getElementById("descripcion");
                                             let imgElem = document.getElementById("img1");
                                             let img2Elem = document.getElementById("img2");
                                             let videoElem = document.getElementById("video1");
+                                            let mapElem = document.getElementById("mapa1");
+                                            let imgAire = document.getElementById("img-aire")
+                                            let imgTaxi = document.getElementById("img-taxi")
+                                            let imgTele = document.getElementById("img-tele")
+                                            let imgDucha = document.getElementById("img-ducha")
+
+                                            // Sets the result data with the html element
                                             inputF.textContent = nombre;
                                             paragElem.textContent = descripcion;
                                             imgElem.setAttribute("src", urlImagen1);
                                             img2Elem.setAttribute("src", urlImagen2);
                                             videoElem.setAttribute("src", urlVideo);
+                                            mapElem.setAttribute("src", urlMapa);
+                                            imgAire.setAttribute("src", aireAcondicionado);
+                                            imgTaxi.setAttribute("src", servicioTaxi);
+                                            imgTele.setAttribute("src", television);
+                                            imgDucha.setAttribute("src", banoDucha);
+
+                                            $("#example").modal("show");
                                         }
                                     </script>
                                 </div>
@@ -156,9 +222,6 @@ $criterios = [
         </ul>
     </div>
 </section>
-
-
-
 </body>
 
 <?php
