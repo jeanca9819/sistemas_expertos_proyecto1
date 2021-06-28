@@ -1,6 +1,6 @@
 <?php
 
-require_once "configuration\database.php";
+require_once "configuration/database.php";
 
 
 class Alojamiento
