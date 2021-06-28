@@ -128,10 +128,10 @@ $criterios = [
                                             let img2Elem = document.getElementById("img2");
                                             let videoElem = document.getElementById("video1");
                                             let mapElem = document.getElementById("mapa1");
-                                            let imgAire = document.getElementById("img-aire")
-                                            let imgTaxi = document.getElementById("img-taxi")
-                                            let imgTele = document.getElementById("img-tele")
-                                            let imgDucha = document.getElementById("img-ducha")
+                                            let imgAire = document.getElementById("img-aire");
+                                            let imgTaxi = document.getElementById("img-taxi");
+                                            let imgTele = document.getElementById("img-tele");
+                                            let imgDucha = document.getElementById("img-ducha");
 
                                             // Sets the result data with the html element
                                             inputF.textContent = nombre;
