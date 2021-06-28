@@ -46,7 +46,7 @@ $criterios = [
     ],
 ];
 
-  $aditionalContent = '<div class="row"><h5>Otras Caracteristicas Adicionales</h5></div>
+$aditionalContent = '<div class="row"><h5>Otras Caracteristicas Adicionales</h5></div>
 
 <div class="row">
     <div class="col-sm">
@@ -76,93 +76,94 @@ $criterios = [
 
 <body>
 
-    <header class="masthead">
-        <div class="container d-flex h-100 align-items-center mx-auto">
-            <?php
-            include_once 'views/barraCriterios.php';
-            ?>
-        </div>
-    </header>
-    <br>
-    <br>
-    <?=
-    include_once 'views/generalModal.php'
+<header class="masthead">
+<div class="container d-flex h-100 align-items-center mx-auto">
+<?php
+include_once 'views/barraCriterios.php';
+?>
+</div>
+</header>
+<br>
+<br>
+
+<?=
+include_once 'views/generalModal.php'
 ?>
 
 <section id="result">
-    <div style="" class="container" id="content">
+<div style="" class="container" id="content">
 
-        <ul class="list-group list-group-flush">
-            <?php
-                foreach ($results as $result) {
-                ?>
-                <li class="list-group-item-action">
-                    <div class="card mb-3" style="max-width: 1500px;">
-                        <div class="row no-gutters">
-                            <div class="col-md-4">
-                                <img style="max-width: 350px;" class="card-img-top card-image"
-                                     src=<?= $result['url_imagen_1'] ?>
-                                     alt="...">
-                            </div>
-                            <div class="col-md-8">
-                                <div class="card-body">
-                                    <h5 class="card-title"><?= $result['nombre'] ?></h5>
-                                    <p class="card-text"><?= $result['descripcion'] ?></p>
-                                    <a type="button" id="<?= "link_" . $result['id'] ?>" onclick="getSelectedValue<?=$result['id'] ?>()">Ver más</a>
-                                    <script>
-                                        // This function is ugly and must be changed asap. But developer too lazy... developer must eat and sleep first
-                                        // Loads selected result data to modal. The name of the function is associated with the result tha was selected on the list
-                                        function getSelectedValue<?=$result['id'] ?>() {
+<ul class="list-group list-group-flush">
+<?php
+foreach ($results as $result) {
+?>
+<li class="list-group-item-action">
+<div class="card mb-3" style="max-width: 1500px;">
+    <div class="row no-gutters">
+        <div class="col-md-4">
+            <img style="max-width: 350px;" class="card-img-top card-image"
+                 src=<?= $result['url_imagen_1'] ?>
+                 alt="...">
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title"><?= $result['nombre'] ?></h5>
+                <p class="card-text"><?= $result['descripcion'] ?></p>
+                <a type="button" id="<?= "link_" . $result['id'] ?>" onclick="getSelectedValue<?=$result['id'] ?>()">Ver más</a>
+                <script>
+                    // This function is ugly and must be changed asap. But developer too lazy... developer must eat and sleep first
+                    // Loads selected result data to modal. The name of the function is associated with the result tha was selected on the list
+                    function getSelectedValue<?=$result['id'] ?>() {
 
-                                            // Takes the data from the backend php of the selected result
-                                            let nombre = "<?= $result['nombre'] ?>";
-                                            let descripcion = "<?= $result['descripcion'] ?>";
-                                            let urlImagen1 = "<?= $result['url_imagen_1'] ?>";
-                                            let urlImagen2 = "<?= $result['url_imagen_2'] ?>";
-                                            let urlVideo = "<?= $result['url_video'] ?>";
-                                            let urlMapa = "<?= $result['url_mapa'] ?>";
-                                            let camping = "<?= $result['camping'] ?>";
-                                            let mascotas = "<?= $result['mascotas'] ?>";
-                                            let bano = "<?= $result['baño'] ?>";
-                                            let trasnporte = "<?= $result['trasnporte'] ?>";
+                        // Takes the data from the backend php of the selected result
+                        let nombre = "<?= $result['nombre'] ?>";
+                        let descripcion = "<?= $result['descripcion'] ?>";
+                        let urlImagen1 = "<?= $result['url_imagen_1'] ?>";
+                        let urlImagen2 = "<?= $result['url_imagen_2'] ?>";
+                        let urlVideo = "<?= $result['url_video'] ?>";
+                        let urlMapa = "<?= $result['url_mapa'] ?>";
+                        let camping = "<?= $result['camping'] ?>";
+                        let mascotas = "<?= $result['mascotas'] ?>";
+                        let bano = "<?= $result['baños'] ?>";
+                        let transporte = "<?= $result['transporte'] ?>";
 
-                                            // Selects the html elements that are needed to load the result data
-                                            let inputF = document.getElementById("modal-title");
-                                            let paragElem = document.getElementById("descripcion");
-                                            let imgElem = document.getElementById("img1");
-                                            let img2Elem = document.getElementById("img2");
-                                            let videoElem = document.getElementById("video1");
-                                            let mapElem = document.getElementById("mapa1");
-                                            let imgAire = document.getElementById("img-aire");
-                                            let imgTaxi = document.getElementById("img-taxi");
-                                            let imgTele = document.getElementById("img-tele");
-                                            let imgDucha = document.getElementById("img-ducha");
+                        // Selects the html elements that are needed to load the result data
+                        let inputF = document.getElementById("modal-title");
+                        let paragElem = document.getElementById("descripcion");
+                        let imgElem = document.getElementById("img1");
+                        let img2Elem = document.getElementById("img2");
+                        let videoElem = document.getElementById("video1");
+                        let mapElem = document.getElementById("mapa1");
+                        let imgAire = document.getElementById("img-aire");
+                        let imgTaxi = document.getElementById("img-taxi");
+                        let imgTele = document.getElementById("img-tele");
+                        let imgDucha = document.getElementById("img-ducha");
 
-                                            // Sets the result data with the html element
-                                            inputF.textContent = nombre;
-                                            paragElem.textContent = descripcion;
-                                            imgElem.setAttribute("src", urlImagen1);
-                                            img2Elem.setAttribute("src", urlImagen2);
-                                            videoElem.setAttribute("src", urlVideo);
-                                            mapElem.setAttribute("src", urlMapa);
-                                            imgAire.setAttribute("src", camping);
-                                            imgTaxi.setAttribute("src", mascotas);
-                                            imgTele.setAttribute("src", bano);
-                                            imgDucha.setAttribute("src", trasnporte);
+                        // Sets the result data with the html element
+                        inputF.textContent = nombre;
+                        paragElem.textContent = descripcion;
+                        imgElem.setAttribute("src", urlImagen1);
+                        img2Elem.setAttribute("src", urlImagen2);
+                        videoElem.setAttribute("src", urlVideo);
+                        mapElem.setAttribute("src", urlMapa);
+                        imgAire.setAttribute("src", camping);
+                        imgTaxi.setAttribute("src", mascotas);
+                        imgTele.setAttribute("src", bano);
+                        imgDucha.setAttribute("src", transporte);
 
-                                            $("#example").modal("show");
-                                        }
-                                    </script>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <?php
-                }
-            ?>
-        </ul>
+                        $("#example").modal("show");
+                    }
+                </script>
+            </div>
+        </div>
     </div>
+</div>
+</li>
+<?php
+}
+?>
+</ul>
+</div>
 </section>
 </body>
 

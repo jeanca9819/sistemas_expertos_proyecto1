@@ -9,6 +9,7 @@ class atractivoController
         $euclides = new Euclides();
         $atractivo = new Atractivo();
         $request = new Request();
+        $results = [];
 
         if(strtolower($_SERVER['REQUEST_METHOD']) === 'post') {
             $storedData = $atractivo->getDbData();

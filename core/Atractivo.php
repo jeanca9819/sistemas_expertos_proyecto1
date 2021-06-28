@@ -71,9 +71,32 @@ class Atractivo
         }
 
         $conn->close();
+        $resultData = $this->filterAditionalServices($resultData);
 
         return $resultData;
 
+    }
+
+    public function filterAditionalServices($results) {
+
+        $servicios = [
+            "camping",
+            "mascotas",
+            "baños",
+            "transporte"
+        ];
+
+        foreach ($results as $index => $result) {
+            foreach ($result as $key => $value) {
+                foreach ($servicios as $servicio) {
+                    if($servicio == $key) {
+                        $results[$index][$key] = $value ? "../assets/img/check.svg" : "../assets/img/crossed.svg";
+                    }
+                }
+            }
+        }
+
+        return $results;
     }
 
     // gets data from database
