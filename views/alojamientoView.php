@@ -38,7 +38,34 @@ $criterios = [
         "Más de 5 días" => 5
     ],
     "Habitaciones" => 0
-]
+];
+
+    $aditionalContent = '<div class="row"><h5>Otras Caracteristicas Adicionales</h5></div>
+
+                    <div class="row">
+                        <div class="col-sm">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <img id="img-aire" width="5%" src="">&nbsp;&nbsp;Aire Acondicionado
+                                </li>
+                                <li class="list-group-item">
+                                    <img id="img-taxi" width="5%" src="">&nbsp;&nbsp;Servicio de Taxi
+                                </li>
+                            </ul>
+                        </div>
+
+                        <div class="col-sm">
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item">
+                                    <img id="img-tele" width="5%" src="">&nbsp;&nbsp;Television
+                                </li>
+                                <li class="list-group-item">
+                                    <img id="img-ducha" width="5%" src="">&nbsp;&nbsp;Baño / Ducha
+                                </li>
+                            </ul>
+                        </div>
+                    </div>';
+
 ?>
 
 <body>
@@ -47,63 +74,15 @@ $criterios = [
     <div class="container d-flex h-100 align-items-center mx-auto">
         <?php
             include_once 'views/barraCriterios.php';
-            $counter = 0;
-            $selectedValue = 0;
         ?>
     </div>
 </header>
 <br>
 <br>
 
-<div class="modal fade bd-example-modal-lg" id="example" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-    <div class="modal-dialog modal-lg" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLongTitle"></h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                <div id="carouselHolidayIndicators" class="carousel slide" data-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-target="#carouselHolidayIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselHolidayIndicators" data-slide-to="1"></li>
-                        <li data-target="#carouselHolidayIndicators" data-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img id="img1" class="d-block w-100" src="" alt="First slide">
-                        </div>
-                        <div class="carousel-item">
-                            <img id="img2" class="d-block w-100" src="" alt="Second slide">
-                        </div>
-                        <div class="carousel-item">
-                            <div class="video-responsive">
-                                <iframe id="video1" width="560" height="315" src="https://www.youtube.com/embed/f0bc5E24Js4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                            </div>
-                        </div>
-                    </div>
-                    <a class="carousel-control-prev" href="#carouselHolidayIndicators" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselHolidayIndicators" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
-                </div>
-                <br>
-                <div>
-                    <p id="descripcion"></p>
-                </div>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary data-dismiss" data-dismiss="modal">Cerrar</button>
-            </div>
-        </div>
-    </div>
-</div>
+<?=
+    include_once 'views/generalModal.php'
+?>
 
 <section id="result">
     <div style="" class="container" id="content">
@@ -126,25 +105,47 @@ $criterios = [
                                     <p class="card-text"><?= $result['descripcion'] ?></p>
                                     <a type="button" id="<?= "link_" . $result['id'] ?>" onclick="getSelectedValue<?=$result['id'] ?>()">Ver más</a>
                                     <script>
+                                        // This function is ugly and must be changed asap. But developer too lazy... developer must eat and sleep first
+                                        // Loads selected result data to modal. The name of the function is associated with the result tha was selected on the list
                                         function getSelectedValue<?=$result['id'] ?>() {
+
+                                            // Takes the data from the backend php of the selected result
                                             let nombre = "<?= $result['nombre'] ?>";
                                             let descripcion = "<?= $result['descripcion'] ?>";
                                             let urlImagen1 = "<?= $result['url_imagen_1'] ?>";
                                             let urlImagen2 = "<?= $result['url_imagen_2'] ?>";
                                             let urlVideo = "<?= $result['url_video'] ?>";
-                                            //const urlMapa = "<?//= $result['url_mapa '] ?>//";
-                                            $("#example").modal("show");
+                                            let urlMapa = "<?= $result['url_mapa'] ?>";
+                                            let aireAcondicionado = "<?= $result['aire_acondicionado'] ?>";
+                                            let television = "<?= $result['television'] ?>";
+                                            let servicioTaxi = "<?= $result['servicio_taxi'] ?>";
+                                            let banoDucha = "<?= $result['baño_ducha'] ?>";
 
-                                            let inputF = document.getElementById("exampleModalLongTitle");
+                                            // Selects the html elements that are needed to load the result data
+                                            let inputF = document.getElementById("modal-title");
                                             let paragElem = document.getElementById("descripcion");
                                             let imgElem = document.getElementById("img1");
                                             let img2Elem = document.getElementById("img2");
                                             let videoElem = document.getElementById("video1");
+                                            let mapElem = document.getElementById("mapa1");
+                                            let imgAire = document.getElementById("img-aire");
+                                            let imgTaxi = document.getElementById("img-taxi");
+                                            let imgTele = document.getElementById("img-tele");
+                                            let imgDucha = document.getElementById("img-ducha");
+
+                                            // Sets the result data with the html element
                                             inputF.textContent = nombre;
                                             paragElem.textContent = descripcion;
                                             imgElem.setAttribute("src", urlImagen1);
                                             img2Elem.setAttribute("src", urlImagen2);
                                             videoElem.setAttribute("src", urlVideo);
+                                            mapElem.setAttribute("src", urlMapa);
+                                            imgAire.setAttribute("src", aireAcondicionado);
+                                            imgTaxi.setAttribute("src", servicioTaxi);
+                                            imgTele.setAttribute("src", television);
+                                            imgDucha.setAttribute("src", banoDucha);
+
+                                            $("#example").modal("show");
                                         }
                                     </script>
                                 </div>
@@ -153,15 +154,11 @@ $criterios = [
                     </div>
                 </li>
                 <?php
-                    $counter++;
                 }
             ?>
         </ul>
     </div>
 </section>
-
-
-
 </body>
 
 <?php
