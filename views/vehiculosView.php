@@ -1,11 +1,67 @@
 <?php
 include_once 'views/header.php';
+
+$counter = 0;
+
+$atributos = [
+    
+    "Precio" => "precio",
+    "Pasajeros" => "pasajeros",
+    "Tiempo" => "tiempo"
+    
+];
+
+$criterios = [
+
+    "Precios" => [
+        "$0 - $250" => 1,
+        "$250 - $500" => 2,
+        "$500 - $750" => 3,
+        "$750-$1000" => 4
+    ],
+   
+    "Pasajeros" => [
+        "4 personas" => 1,
+        "8 personas" => 2,
+        "12 personas" => 3,
+        "16 personas" => 4,
+    ],
+    
+
+    "Tiempo" => [
+        "2 días" => 1,
+        "4 días" => 2,
+        "6 días" => 3,
+        "8 días" => 4,
+        "10 días" => 5,
+        "12 días" => 6,
+        "14 días" => 7,
+        "16 días" => 8,
+        "18 días" => 9,
+        "20 días" => 10,
+        "22 días" => 11,
+        "24 días" => 12,
+        "26 días" => 13,
+        "28 días" => 14,
+        "30 días" => 15
+    ]
+];
 ?>
+
 <header class="masthead">
-    <div class="container d-flex h-100 align-items-center mx-auto">
-        <?php
-            include_once 'views/barraVehiculosView.php';
-        ?>
+    <div class="container">
+        <div style="text-align: center;">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+            <h3 style="color: white;">Vehículos</h3>
+        </div>
+            <?php
+                include_once 'views/barraCriterios.php';
+            ?>
     </div>
 </header>
 <br>
