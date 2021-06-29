@@ -65,7 +65,6 @@ $criterios = [
                             </ul>
                         </div>
                     </div>';
-
 ?>
 
 <body>
