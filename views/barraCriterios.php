@@ -1,6 +1,3 @@
-
-
-
 <div class="container" style="padding-top: 120px">
     <div class="barra">
         <form name="<?= $_GET['c'] ?>" method="post">
@@ -26,7 +23,7 @@
                                 <?php
                             } else {
                                 ?>
-                                <input name=<?= $atributos[$key] ?> type="number" class="form-control" id="" min="1" placeholder="Cantidad de Habitaciones">
+                                <input name=<?= $atributos[$key] ?> type="number" class="form-control" id="" min="1" placeholder="Cantidad">
                                 <?php
                             }
                             ?>
@@ -37,8 +34,7 @@
                 ?>
             </div>
             <div class="col text-right">
-                <button type="submit" class="btn btn-primary">Submit</button>
-<!--                <input type='button' id='hideshow' value='Filtrar' onclick="location.href='#result';">-->
+                <button type="submit" class="btn btn-primary">Filtrar</button>
             </div>
         </form>
     </div>

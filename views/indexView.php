@@ -1,84 +1,310 @@
 <?php 
-    include_once 'views/header.php';
-?>
-        <header class="masthead">
-            <div class="container d-flex h-100 align-items-center">
-                <div class="mx-auto text-center">
-                    <h1 class="mx-auto my-0 text-uppercase">Ride 360</h1>
-                    <h2 class="text-white-50 mx-auto mt-2 mb-5">¡Bienvenido!</h2>
-                    <a class="btn btn-primary js-scroll-trigger" href="#first">Empezar</a>
-                </div>
-            </div>
-        </header>
-   
-        <section class="about-section text-center" id="first">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8 mx-auto">
-                        <h2 class="text-white mb-4">Encuentra los mejores paquetes para tí.</h2>
-                        <p class="text-white-50">
-                            Nuestra página te ayudará a encontrar paquetes turísticos de una manera personalizada.
-                        </p>
-                    </div>
-                </div>
-                <img class="img-fluid" src="assets/img/ipad.png"/>
-            </div>
-        </section>
+    include_once 'views/header.php';   
+$atributos = [
+    "Tipo de turismo" => "tipo_turismo",
+    "Precios" => "precios",
+    "Cercania" => "cercania",
+    "Alimentacion" => "alimentacion",
+    "Transporte" => "transporte"
+];
+
+
+
+$criterios = [
+    "Tipo de turismo" => [
+        "Natural"=>1,
+        "Urbano"=>2,
+        "Aventura"=>3,
+        "Compras"=>4,
+        "Gastronómico"=>5
+    ],
+    "Precios" => [
+        "₡50.000"=>1,
+        "₡100.000"=>2,
+        "₡250.000"=>3
         
-        <section class="signup-section" id="about">
-            <div class="container">
-                <div class="row">
-                    <div class="col-md-10 col-lg-8 mx-auto text-center">
-                        <i class="far fa-hand-peace fa-2x mb-2 text-white"></i>
-                        <h2 class="text-white mb-5">Acerca de Nosotros</h2>
+    ],
+    "Cercanía" => [
+        "Menos de 25km"=>1,
+        "25km - 100km"=>2,
+        "Más de 100km"=>3
+    ],
+    "Alimentación incluida" => [
+        "Sí"=>1,
+        "No"=>2
+    ],
+    "Transporte incluido" => [
+        "Sí"=>1,
+        "No"=>2
+    ]
+]
+?>
+
+<body>
+
+<header class="masthead">
+    <div class="container">
+        <div style="text-align: center;">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+            <h3 style="color: white;">Paquetes Turísticos</h3>
+        </div>
+            <?php
+                include_once 'views/barraCriterios.php';
+            ?>
+    </div>
+</header>
+<br>
+<br>
+<section id="result">
+    <div style="display:none;" class="container" id="content">
+        <ul class="list-group list-group-flush">
+            <li class="list-group-item-action">
+                <div class="card mb-3" style="max-width: 1500px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img style="max-width: 350px;" class="card-img-top card-image"
+                                src="https://nyacknewsandviews.com/wp-content/uploads/2021/01/la-fortuna-waterfall_0.jpg"
+                                alt="...">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Paquete a La Fortuna</h5>
+                                <h6 class="card-subtitle">Alojamiento (2 noches), 2 personas + Atractivos</h6>
+                                <p class="card-text">Precio: ₡200.000</p>
+                                <p class="card-text">Empresa Turística: Costa Rica Nature Escape </p>
+                                <a data-toggle="modal" data-target="#exampleModalCenter" href="">Ver más</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
-            </div>
-        </section>
-        <section class="contact-section bg-black">
-            <div class="container">
-                <div class="row">
-                <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-university text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Universidad de Costa Rica</h4>
-                                <hr class="my-4" />
-                                <div class="small text-black-50">Sede del Atlántico</div>
-                                <br />
-                                <div class="small text-black-50">Sistemas Expertos</div>
-                            </div>
+            </li>
+            <li class="list-group-item-action">
+                <div class="card mb-3" style="max-width: 1500px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img style="max-width: 350px;" class="card-img-top card-image"
+                                src="https://www.govisitcostarica.co.cr/images/photos/mob-beautiful-suspension-bridge-monteverde.jpg" alt="...">
                         </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-users text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Desarrolladores</h4>
-                                <hr class="my-4" />
-                                <div class="small text-black-50">José Quirós</div>
-                                <div class="small text-black-50">Valeria Leiva</div>
-                                <div class="small text-black-50">Albin Hernández</div>
-                                <div class="small text-black-50">Jean Carlo Valenciano</div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 mb-3 mb-md-0">
-                        <div class="card py-4 h-100">
-                            <div class="card-body text-center">
-                                <i class="fas fa-envelope text-primary mb-2"></i>
-                                <h4 class="text-uppercase m-0">Emails</h4>
-                                <hr class="my-4" />
-                                <div class="small text-black-50">jose.quirosmontenegro@ucr.ac.cr</div>
-                                <div class="small text-black-50">valeria.leivaquiros@ucr.ac.cr</div>
-                                <div class="small text-black-50">albin.hernandezrivera@ucr.ac.cr</div>
-                                <div class="small text-black-50">jean.valenciano@ucr.ac.cr</div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Paquete a Monte Verde</h5>
+                                <h6 class="card-subtitle">Alojamiento (1 noche), 4 personas + Atractivos</h6>
+                                <p class="card-text">Precio: ₡350.000</p>
+                                <p class="card-text">Empresa Turística: Brazos Abiertos Costa Rica </p>
+                                <a data-toggle="modal" data-target="#monte" href="">Ver más</a>
                             </div>
                         </div>
                     </div>
                 </div>
+            </li>
+            <li class="list-group-item-action">
+                <div class="card mb-3" style="max-width: 1500px;">
+                    <div class="row no-gutters">
+                        <div class="col-md-4">
+                            <img style="max-width: 350px;" class="card-img-top card-image" alt="Responsive image"
+                                src="http://hablemosdeislas.com/wp-content/uploads/2018/07/isla-del-coco-7-e1530912069771.jpg">
+                        </div>
+                        <div class="col-md-8">
+                            <div class="card-body">
+                                <h5 class="card-title">Paquete a Isla del Coco</h5>
+                                <h6 class="card-subtitle">Alojamiento (1 noche), 3 personas + Alimentación</h6>
+                                <p class="card-text">Precio: ₡250.000</p>
+                                <p class="card-text">Empresa Turística: Turismo Inteligente</p>
+                                <a data-toggle="modal" data-target="#coco" href="">Ver más</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+        </ul>
+    </div>
+</section>
+
+
+<!-- Este es el modal, por el momento se deja aquí pero hay que hacerlo más modular  -->
+<div class="modal fade bd-example-modal-lg" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Paquete a La Fortuna</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
-        </section>
+            <div class="modal-body">
+                <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="img-fluid" src="https://cf.bstatic.com/images/hotel/max1024x768/279/279786633.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="https://rutascostarica.viajes/images/destinos/arenal/actividades/canopy.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <div class="video-responsive">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/055B5UCUjHk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <br>
+                <div>
+                    <p>
+                        La Fortuna es una pequeña comunidad de Costa Rica, al noroeste de la capital, San José. 
+                        <br><br>
+                        Es conocida como una vía de acceso al Parque Nacional Volcán Arenal, que abarca 2 volcanes.
+                        <br><br>
+                        Este paquete incluye alojamiento en Hotel Selina para 2 personas (2 noches). 
+                        <br><br>
+                        Disfrutarás de los atractivos como el recorrido por la Catarata La Fortuna y los Puentes
+                        Colgantes de Arenal.
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary data-dismiss" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade bd-example-modal-lg" id="monte" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Paquete a Monte Verde</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="carouselTamborIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselTamborndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselTamborndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselTamborndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="https://elestablo.com/wp-content/uploads/2019/12/El-Establo-Mountain-Hotel.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="https://blog.selvatura.com/wp-content/uploads/2020/03/selvatura-park-canopy-tour-007.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <div class="video-responsive">
+                            <iframe width="1280" height="720" src="https://www.youtube.com/embed/qY09U0OkgOY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselTamborIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselTamborIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <br>
+                <div>
+                    <p>
+                        Monteverde es una ciudad en el noroeste montañoso de Costa Rica. Es reconocida por sus bosques biodiversos en las nubes.
+                        <br><br>
+                        Este paquete incluye alojamiento en El Establo Mountain Hotel para 4 personas (1 noche). 
+                        <br><br>
+                        Disfrutarás de los atractivos como canopy, bungee y excursiones. 
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary data-dismiss" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="modal fade bd-example-modal-lg" id="coco" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Paquete a Isla del Coco</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="carouselHolidayIndicators" class="carousel slide" data-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-target="#carouselHolidayIndicators" data-slide-to="0" class="active"></li>
+                        <li data-target="#carouselHolidayIndicators" data-slide-to="1"></li>
+                        <li data-target="#carouselHolidayIndicators" data-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img class="d-block w-100" src="https://www.visitcentroamerica.com/wp-content/uploads/2018/01/ver-centroamerica-costa-rica-parque-nacional-isla-del-coco-3.jpg" alt="First slide">
+                        </div>
+                        <div class="carousel-item">
+                            <img class="d-block w-100" src="https://media-cdn.tripadvisor.com/media/photo-s/0c/1b/3d/0d/20160721-130909-largejpg.jpg" alt="Second slide">
+                        </div>
+                        <div class="carousel-item">
+                            <div class="video-responsive">
+                                <iframe width="1280" height="720" src="https://www.youtube.com/embed/jYRD9hsw9UQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselHolidayIndicators" role="button" data-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselHolidayIndicators" role="button" data-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="sr-only">Next</span>
+                    </a>
+                </div>
+                <br>
+                <div>
+                    <p>
+                        La Isla del Coco es una isla situada en el océano Pacífico perteneciente al Cantón de Puntarenas de la provincia homónima,
+                        de la República de Costa Rica, que la declaró parque nacional.
+                        <br><br>
+                        Este paquete incluye alojamiento en The Cove at Playa Ocotal para 3 personas (1 noche) e incluye almuerzo. 
+                        <br><br>
+                        El The Cove at Playa Ocotal, se encuentra en Coco, a 4,1 km del Hard Rock Cafe Guanacaste. 
+                    </p>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary data-dismiss" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>     
+
 <?php
     include_once 'views/footer.php'; 
 ?>

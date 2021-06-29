@@ -71,10 +71,19 @@ $criterios = [
 <body>
 
 <header class="masthead">
-    <div class="container d-flex h-100 align-items-center mx-auto">
-        <?php
-            include_once 'views/barraCriterios.php';
-        ?>
+    <div class="container">
+        <div style="text-align: center;">
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+            <h3 style="color: white;">Alojamientos</h3>
+        </div>
+            <?php
+                include_once 'views/barraCriterios.php';
+            ?>
     </div>
 </header>
 <br>
