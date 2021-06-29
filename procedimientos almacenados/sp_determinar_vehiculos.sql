@@ -47,6 +47,6 @@ BEGIN
 		set i=i+1;
 	end while;
     
-    select precio, pasajeros, tiempo, imagen, video, mapa, descripcion from vehiculo where clase = clase_definida order by rand() limit 0,5;
+    select id_vehiculo, precio, pasajeros, tiempo, imagen, video, mapa, descripcion from vehiculo where clase = clase_definida order by rand() limit 0,5;
     
 END

@@ -53,6 +53,6 @@ BEGIN
 		set i=i+1;
 	end while;
     
-    select precio, alimentacion, transporte, imagen, video, mapa, descripcion from paquete where clase = clase_definida order by rand() limit 0,5;
+    select id_paquete, precio, alimentacion, transporte, imagen, video, mapa, descripcion from paquete where clase = clase_definida order by rand() limit 0,5;
     
 END
