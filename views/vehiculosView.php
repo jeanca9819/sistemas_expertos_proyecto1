@@ -13,37 +13,37 @@ $atributos = [
 
 $criterios = [
 
-    "Precios" => [
-        "$0 - $250" => 1,
-        "$250 - $500" => 2,
-        "$500 - $750" => 3,
-        "$750-$1000" => 4
+    "Precio" => [
+        "$0 - $250" => 250,
+        "$250 - $500" => 500,
+        "$500 - $750" => 750,
+        "$750-$1000" => 1000
     ],
    
     "Pasajeros" => [
-        "4 personas" => 1,
-        "8 personas" => 2,
-        "12 personas" => 3,
-        "16 personas" => 4,
+        "4 personas" => 4,
+        "8 personas" => 8,
+        "12 personas" => 12,
+        "16 personas" => 16,
     ],
     
 
     "Tiempo" => [
-        "2 días" => 1,
-        "4 días" => 2,
-        "6 días" => 3,
-        "8 días" => 4,
-        "10 días" => 5,
-        "12 días" => 6,
-        "14 días" => 7,
-        "16 días" => 8,
-        "18 días" => 9,
-        "20 días" => 10,
-        "22 días" => 11,
-        "24 días" => 12,
-        "26 días" => 13,
-        "28 días" => 14,
-        "30 días" => 15
+        "2 días" => 2,
+        "4 días" => 4,
+        "6 días" => 6,
+        "8 días" => 8,
+        "10 días" => 10,
+        "12 días" => 12,
+        "14 días" => 14,
+        "16 días" => 16,
+        "18 días" => 18,
+        "20 días" => 20,
+        "22 días" => 22,
+        "24 días" => 24,
+        "26 días" => 26,
+        "28 días" => 28,
+        "30 días" => 30
     ]
 ];
 
@@ -68,6 +68,11 @@ $aditionalContent = '';
 </header>
 <br>
 <br>
+
+
+<?=
+    include_once 'views/generalModal.php'
+?>
 
 <section id="result">
     <div style="" class="container" id="content">

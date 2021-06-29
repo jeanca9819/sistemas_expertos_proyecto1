@@ -11,7 +11,8 @@ class Vehiculo
 
     public int $pasajeros = 0;
     public int $tiempo = 0;
-    public float $precio = 0;
+    public int $precio = 0;
+
     public array $values = [];
 
     public function __construct()
