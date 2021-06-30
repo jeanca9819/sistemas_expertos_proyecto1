@@ -1,6 +1,6 @@
 <div class="container" style="padding-top: 120px">
     <div class="barra">
-        <form name="<?= $_GET['c'] ?>" method="post">
+        <form name="<?= $_GET['c'] ?? 'paquetes' ?>" method="post">
             <div class="row">
                 <?php
                 foreach ($criterios as $key => $criterio) {

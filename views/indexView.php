@@ -1,11 +1,11 @@
 <?php 
     include_once 'views/header.php';   
 $atributos = [
-    "Tipo de turismo" => "tipo_turismo",
+    "Tipo de turismo" => "tipo",
     "Precios" => "precios",
-    "Cercania" => "cercania",
-    "Alimentacion" => "alimentacion",
-    "Transporte" => "transporte"
+    "Cercanía" => "cercania",
+    "Alimentación incluida" => "alimentacion",
+    "Transporte incluido" => "transporte"
 ];
 
 
@@ -22,7 +22,6 @@ $criterios = [
         "₡50.000"=>50000,
         "₡100.000"=>100000,
         "₡250.000"=>250000
-        
     ],
     "Cercanía" => [
         "Menos de 25km"=>"-25",
