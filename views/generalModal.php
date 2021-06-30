@@ -11,16 +11,29 @@
                 <div id="carouselHolidayIndicators" class="carousel slide" data-ride="carousel">
                     <ol class="carousel-indicators">
                         <li data-target="#carouselHolidayIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselHolidayIndicators" data-slide-to="1"></li>
+                        <?php
+                        if ($flag) {
+                        ?>
+                            <li data-target="#carouselHolidayIndicators" data-slide-to="1"></li>
+                            <?php
+                        }
+                        ?>
                         <li data-target="#carouselHolidayIndicators" data-slide-to="2"></li>
                     </ol>
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img id="img1" class="d-block w-100" src="" alt="First slide">
                         </div>
-                        <div class="carousel-item">
-                            <img id="img2" class="d-block w-100" src="" alt="Second slide">
-                        </div>
+                        <?php
+                            if ($flag) {
+                        ?>
+                            <div class="carousel-item">
+                                <img id="img2" class="d-block w-100" src="" alt="Second slide">
+                            </div>
+                        <?php
+                            }
+                            ?>
+                        ?>
                         <div class="carousel-item">
                             <div class="video-responsive">
                                 <iframe id="video1" width="100%" height="100%" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>

@@ -2,6 +2,8 @@
 include_once 'views/header.php';
 $counter = 0;
 
+$flag = true;
+
 $atributos = [
     "Tipo de atractivo" => "tipo_atractivo",
     "Precios" => "precios",

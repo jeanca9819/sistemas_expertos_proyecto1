@@ -1,6 +1,8 @@
 <?php 
     include_once 'views/header.php';
 
+$flag = false;
+
 $atributos = [
     "Tipo de turismo" => "tipo",
     "Precios" => "precio",
@@ -96,7 +98,7 @@ $aditionalContent = '';
                                             let nombre = "<?= $result['nombre'] ?>";
                                             let descripcion = "<?= $result['descripcion'] ?>";
                                             let urlImagen1 = "<?= $result['imagen'] ?>";
-                                            let urlImagen2 = "<?= $result['imagen'] ?>";
+                                            //let urlImagen2 = "<?//= $result['imagen'] ?>//";
                                             let urlVideo = "<?= $result['video'] ?>";
                                             let urlMapa = "<?= $result['mapa'] ?>";
                                             
@@ -105,7 +107,7 @@ $aditionalContent = '';
                                             let inputF = document.getElementById("modal-title");
                                             let paragElem = document.getElementById("descripcion");
                                             let imgElem = document.getElementById("img1");
-                                            let img2Elem = document.getElementById("img2");
+                                            // let img2Elem = document.getElementById("img2");
                                             let videoElem = document.getElementById("video1");
                                             let mapElem = document.getElementById("mapa1");
 
@@ -113,7 +115,7 @@ $aditionalContent = '';
                                             inputF.textContent = nombre;
                                             paragElem.textContent = descripcion;
                                             imgElem.setAttribute("src", urlImagen1);
-                                            img2Elem.setAttribute("src", urlImagen2);
+                                            // img2Elem.setAttribute("src", urlImagen2);
                                             videoElem.setAttribute("src", urlVideo);
                                             mapElem.setAttribute("src", urlMapa);
                                             $("#example").modal("show");

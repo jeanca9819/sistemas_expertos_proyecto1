@@ -1,6 +1,8 @@
 <?php
 include_once 'views/header.php';
 
+$flag = true;
+
 $atributos = [
     "Tipo de alojamiento" => "tipo_alojamiento",
     "Servicios" => "servicios",
