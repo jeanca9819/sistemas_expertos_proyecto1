@@ -34,7 +34,11 @@ class Paquete
     public function setData($data) {
         foreach ($data as $key => $value) {
             if(property_exists($this, $key)) {
-                $this->{$key} = (int) $value;
+                if($key == 'precio') {
+                    $this->{$key} = (int) $value;
+                } else {
+                    $this->{$key} = $value;
+                }
             }
         }
 

@@ -1,14 +1,13 @@
 <?php 
-    include_once 'views/header.php';   
+    include_once 'views/header.php';
+
 $atributos = [
     "Tipo de turismo" => "tipo",
-    "Precios" => "precios",
+    "Precios" => "precio",
     "Cercanía" => "cercania",
     "Alimentación incluida" => "alimentacion",
     "Transporte incluido" => "transporte"
 ];
-
-
 
 $criterios = [
     "Tipo de turismo" => [
