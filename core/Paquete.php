@@ -64,7 +64,7 @@ class Paquete
             die("Connection failed: " . $conn->connect_error);
         }
 
-        $sql = "CALL determinar_probabilidades_paquete($this->tipo, $this->precio, $this->cercania, $this->alimentacion, $this->transporte);";
+        $sql = "CALL determinar_probabilidades_paquete('$this->tipo', '$this->precio', '$this->cercania', '$this->alimentacion', '$this->transporte');";
         $result = $conn->query($sql);
 
         // output data of each row

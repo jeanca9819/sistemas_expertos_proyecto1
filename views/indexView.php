@@ -82,7 +82,7 @@ $criterios = [
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
-                                    <h5 class="card-title"><?= $result['descripcion'] ?></h5>
+                                    <h5 class="card-title"><?= $result['nombre'] ?></h5>
                                     <p class="card-text"><?= $result['descripcion'] ?></p>
                                     <a type="button" id="<?= "link_" . $result['id_paquete'] ?>" onclick="getSelectedValue<?=$result['id_paquete'] ?>()">Ver más</a>
                                     <script>
@@ -91,7 +91,7 @@ $criterios = [
                                         function getSelectedValue<?=$result['id_paquete'] ?>() {
 
                                             // Takes the data from the backend php of the selected result
-                                            let nombre = "<?= $result['descripcion'] ?>";
+                                            let nombre = "<?= $result['nombre'] ?>";
                                             let descripcion = "<?= $result['descripcion'] ?>";
                                             let urlImagen1 = "<?= $result['imagen'] ?>";
                                             let urlImagen2 = "<?= $result['imagen'] ?>";
