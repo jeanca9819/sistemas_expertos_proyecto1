@@ -35,7 +35,9 @@ $criterios = [
         "Sí"=>"SI",
         "No"=>"NO"
     ]
-]
+];
+
+$aditionalContent = '';
 ?>
 
 <body>
